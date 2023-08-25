@@ -3,9 +3,73 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="cipher.css">
 		<h1>Word Cipher</h1>
-		<script>
-			function createCipher() {
-  			
+		<script type="text/javascript" defer>
+			function createCipher(message_type) {
+				var message = document.getElementById("message").value; 
+				var cipher = '';
+  			var letters = {};
+				letters['A'] = 'Z';
+				letters['B'] = 'Y';
+				letters['C'] = 'X';
+				letters['D'] = 'W';
+				letters['E'] = 'V';
+				letters['F'] = 'U';
+				letters['G'] = 'T';
+				letters['H'] = 'S';
+				letters['I'] = 'R';
+				letters['J'] = 'Q';
+				letters['K'] = 'P';
+				letters['L'] = 'O';
+				letters['M'] = 'N';
+				letters['N'] = 'M';
+				letters['O'] = 'L';
+				letters['P'] = 'K';
+				letters['Q'] = 'J';
+				letters['R'] = 'I';
+				letters['S'] = 'H';
+				letters['T'] = 'G';
+				letters['U'] = 'F';
+				letters['V'] = 'E';
+				letters['W'] = 'D';
+				letters['X'] = 'C';
+				letters['Y'] = 'B';
+				letters['Z'] = 'A';
+				letters['a'] = 'z';
+				letters['b'] = 'y';
+				letters['c'] = 'x';
+				letters['d'] = 'w';
+				letters['e'] = 'v';
+				letters['f'] = 'u';
+				letters['g'] = 't';
+				letters['h'] = 's';
+				letters['i'] = 'r';
+				letters['j'] = 'q';
+				letters['k'] = 'p';
+				letters['l'] = 'o';
+				letters['m'] = 'n';
+				letters['n'] = 'm';
+				letters['o'] = 'l';
+				letters['p'] = 'k';
+				letters['q'] = 'j';
+				letters['r'] = 'i';
+				letters['s'] = 'h';
+				letters['t'] = 'g';
+				letters['u'] = 'f';
+				letters['v'] = 'e';
+				letters['w'] = 'd';
+				letters['x'] = 'c';
+				letters['y'] = 'b';
+				letters['z'] = 'a';
+				for (let i = 0; i < message.length; i++) {
+  				if (letters[message[i]] != undefined){
+  						cipher += letters[message[i]];
+  				}
+  				else{
+  					cipher += message[i]; 
+  				}
+				}
+
+				document.getElementById("cipher_messaage").value = "Here is your " + message_type + " message:\n" + cipher;
 			}
 		</script>
 	</head>
@@ -13,8 +77,10 @@
 		<div><br>
 			<input type="text" id="message" name="message">
 			<br>Enter your message.<br><br>
-			<button type="encode" onclick="createCipher()">Encode Message</button>
-			<button type="decode" onclick="createCipher()">Decode Message</button>
+			<button type="encode" onclick="createCipher('encoded')">Encode Message</button>
+			<button type="decode" onclick="createCipher('decoded')">Decode Message</button>
+			<br>
+			<textarea id="cipher_messaage" cols="40" rows="6"></textarea>
 		</div>
 	</body>
 </html>
